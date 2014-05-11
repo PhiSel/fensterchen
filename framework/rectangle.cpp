@@ -1,6 +1,5 @@
 #include "rectangle.hpp"
 #include "fensterchen.hpp"
-#include "window.hpp"
 
 Rectangle::Rectangle():
 	lowerleft_{0,0},
