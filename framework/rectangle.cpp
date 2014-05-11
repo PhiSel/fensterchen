@@ -1,4 +1,6 @@
 #include "rectangle.hpp"
+#include "fensterchen.hpp"
+#include "window.hpp"
 
 Rectangle::Rectangle():
 	lowerleft_{0,0},
@@ -50,9 +52,17 @@ double Rectangle::circumference(){
 	return 2*width_+2*height_;
 }
 
+void Rectangle::draw(Window win){
+	//win.drawLine(lowerleft().x(), lowerleft().y(), lowerleft().x()+width(), lowerleft().y(),0,0,0);
+    //win.drawLine(lowerleft().x()+width(), lowerleft().y(),lowerleft().x()+width(), lowerleft().y()+height(),0,0,0);
+    //win.drawLine(lowerleft().x()+width(), lowerleft().y()+height(), lowerleft().x(), lowerleft().y()+height(), 0,0,0);
+    //win.drawLine(lowerleft().x(), lowerleft().y()+height(), lowerleft().x(), lowerleft().y(), 0,0,0);
+
+}
+
 bool Rectangle::is_inside(Point2d p) const{
 	if (p.x()>=lowerleft_.x()&&p.x()<=lowerleft_.x()+width_&&
-		p.y()>=lowerleft_.y()&&p.x()<=lowerleft_.y()+height_)
+		p.y()>=lowerleft_.y()&&p.y()<=lowerleft_.y()+height_)
 	{
 		return true;
 	}
