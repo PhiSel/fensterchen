@@ -3,7 +3,6 @@
 #include "point2d.hpp"
 #include "colorrgb.hpp"
 #include "fensterchen.hpp"
-#include "window.hpp"
 
 class Rectangle
 {
