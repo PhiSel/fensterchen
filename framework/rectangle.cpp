@@ -52,29 +52,22 @@ double Rectangle::circumference(){
 }
 
 void Rectangle::draw(Window &win){
-	win.drawLine(lowerleft().x(), lowerleft().y(), lowerleft().x()+width(), lowerleft().y(),0,0,0);
-    win.drawLine(lowerleft().x()+width(), lowerleft().y(),lowerleft().x()+width(), lowerleft().y()+height(),0,0,0);
-    win.drawLine(lowerleft().x()+width(), lowerleft().y()+height(), lowerleft().x(), lowerleft().y()+height(), 0,0,0);
-    win.drawLine(lowerleft().x(), lowerleft().y()+height(), lowerleft().x(), lowerleft().y(), 0,0,0);
+	win.drawLine(lowerleft_.x(), lowerleft_.y(), lowerleft_.x()+width_, lowerleft_.y(),0,0,0);
+    win.drawLine(lowerleft_.x()+width_, lowerleft_.y(),lowerleft_.x()+width_, lowerleft_.y()+height_,0,0,0);
+    win.drawLine(lowerleft_.x()+width_, lowerleft_.y()+height_, lowerleft_.x(), lowerleft_.y()+height_, 0,0,0);
+    win.drawLine(lowerleft_.x(), lowerleft_.y()+height_, lowerleft_.x(), lowerleft_.y(), 0,0,0);
 }
 
 void Rectangle::draw(Window &win, ColorRGB clr){
-	win.drawLine(lowerleft().x(), lowerleft().y(), lowerleft().x()+width(), lowerleft().y(),clr.r(),clr.g(),clr.b());
-    win.drawLine(lowerleft().x()+width(), lowerleft().y(),lowerleft().x()+width(), lowerleft().y()+height(),clr.r(),clr.g(),clr.b());
-    win.drawLine(lowerleft().x()+width(), lowerleft().y()+height(), lowerleft().x(), lowerleft().y()+height(), clr.r(),clr.g(),clr.b());
-    win.drawLine(lowerleft().x(), lowerleft().y()+height(), lowerleft().x(), lowerleft().y(), clr.r(),clr.g(),clr.b());
+	win.drawLine(lowerleft_.x(), lowerleft_.y(), lowerleft_.x()+width_, lowerleft_.y(),clr.r(),clr.g(),clr.b());
+    win.drawLine(lowerleft_.x()+width_, lowerleft_.y(),lowerleft_.x()+width_, lowerleft_.y()+height_,clr.r(),clr.g(),clr.b());
+    win.drawLine(lowerleft_.x()+width_, lowerleft_.y()+height_, lowerleft_.x(), lowerleft_.y()+height_, clr.r(),clr.g(),clr.b());
+    win.drawLine(lowerleft_.x(), lowerleft_.y()+height_, lowerleft_.x(), lowerleft_.y(), clr.r(),clr.g(),clr.b());
 }
 
 bool Rectangle::is_inside(Point2d p) const{
-	if (p.x()>=lowerleft_.x()&&p.x()<=lowerleft_.x()+width_&&
-		p.y()>=lowerleft_.y()&&p.y()<=lowerleft_.y()+height_)
-	{
-		return true;
-	}
-	else
-	{
-		return false;
-	}
+	return(p.x()>=lowerleft_.x()&&p.x()<=lowerleft_.x()+width_&&
+		p.y()>=lowerleft_.y()&&p.y()<=lowerleft_.y()+height_);
 }
 
 void Rectangle::translate(double x, double y){

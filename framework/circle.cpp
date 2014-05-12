@@ -48,23 +48,23 @@ double Circle::circumference(){
 }
 
 void Circle::draw(Window &win){
-	Point2d ziel = Point2d(center().x(),center().y()+radius());
+	Point2d ziel{center_.x(),center_.y()+radius_};
 	double winkel = M_PI/36;
     while(winkel < 2*M_PI){
       auto start(ziel);
-      ziel.rotate(center(), M_PI/36);
-      win.drawLine(start.x(),start.y(),ziel.x(),ziel.y(),color().r(),color().g(),color().b());
+      ziel.rotate(center_, M_PI/36);
+      win.drawLine(start.x(),start.y(),ziel.x(),ziel.y(),color_.r(),color_.g(),color_.b());
       
       winkel += M_PI/36;
     }
 }
 
 void Circle::draw(Window &win, ColorRGB clr){
-	Point2d ziel = Point2d(center().x(),center().y()+radius());
+	Point2d ziel{center_.x(),center_.y()+radius_};
 	double winkel = M_PI/36;
     while(winkel < 2*M_PI){
       auto start(ziel);
-      ziel.rotate(center(), M_PI/36);
+      ziel.rotate(center_, M_PI/36);
       win.drawLine(start.x(),start.y(),ziel.x(),ziel.y(),clr.r(),clr.g(),clr.b());
       
       winkel += M_PI/36;
