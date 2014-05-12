@@ -75,5 +75,5 @@ bool Circle::is_inside(Point2d p) const{
 	double diff_x = p.x()-center_.x();
 	double diff_y = p.y()-center_.y();
 	double distance = sqrt(pow(diff_x,2)+pow(diff_y,2));
-	return distance < radius_;
+	return distance <= radius_;
 }

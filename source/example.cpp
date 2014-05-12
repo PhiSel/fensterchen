@@ -37,7 +37,7 @@ int main(int argc, char* argv[])
     //Zeichnen eines Rechtecks mit Anpassung der Linienfarbe bei Mouseover
     Rectangle rectangle{{0.2,0.2}, 0.3, 0.4, {153,45,2}};
 
-    if (rectangle.is_inside(Point2d(m.x,m.y)))
+    if (rectangle.is_inside({m.x,m.y}))
     {
       rectangle.draw(win, {0,0,244});
     }else{
