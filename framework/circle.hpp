@@ -2,6 +2,7 @@
 #define BUW_CIRCLE_HPP
 #include "point2d.hpp"
 #include "colorrgb.hpp"
+#include "fensterchen.hpp"
 class Circle
 {
 public:
@@ -20,9 +21,9 @@ public:
 
 	double circumference();	
 
-	void draw();
+	void draw(Window &win);
 
-	void draw(ColorRGB clr);
+	void draw(Window &win, ColorRGB clr);
 
 	bool is_inside(Point2d p) const;
 
