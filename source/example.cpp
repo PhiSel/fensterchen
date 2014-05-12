@@ -30,50 +30,34 @@ int main(int argc, char* argv[])
     win.drawLine(m.x, 0.0f, m.x, 0.01f, 0,0,0);
     win.drawLine(m.x, 0.99f,m.x, 1.0f, 0,0,0);
 
-    //Test roter Punkt reagiert auf Mausposition
-    if (m.y<0.5f && m.x<0.5f)
-    {
-        win.drawPoint(0.3f,0.3f,255,0,0);
-    }else{
-      win.drawPoint(0.3f,0.3f,0,255,0);
-    }
-
     //Begrenzungsrahmen (beim Mac unteres linkes Viertel)
     win.drawLine(1.0f,0.0f, 1.0f,1.0f, 0,0,0);
     win.drawLine(0.0,1.0f,1.0f,1.0f,0,0,0);
 
-    //Zeichnen eines Rechtecks mit Anpassung der Linienfarbe bei Mouseover ohne draw-Methode (weil Fehler)
-    Rectangle rectangle = Rectangle(Point2d(0.2,0.2), 0.3, 0.4, ColorRGB(153,45,2));
+    //Zeichnen eines Rechtecks mit Anpassung der Linienfarbe bei Mouseover
+    Rectangle rectangle{{0.2,0.2}, 0.3, 0.4, {153,45,2}};
 
     if (rectangle.is_inside(Point2d(m.x,m.y)))
     {
-      rectangle.draw(win);
+      rectangle.draw(win, {0,0,244});
     }else{
-      rectangle.draw(win, ColorRGB(255,0,0));
+      rectangle.draw(win);
     }
-    //Test der translate-Funktion an einem Punkt (funktioniert)
-    Point2d x4 = Point2d(0.1,0.2);
-    win.drawPoint(x4.x(), x4.y(), 0,0,0);
-
-    x4.translate(0.1,0.2);
-    win.drawPoint(x4.x(), x4.y(), 0,0,0);
 
     //Test der translate-Funktion an einem Viereck-Punkt (funktioniert nicht)
     auto rectangle1(rectangle);
-    rectangle1.lowerleft().translate(0.4,0.5);
-    win.drawPoint(rectangle1.lowerleft().x(), rectangle1.lowerleft().y(),0,255,0);  
+    rectangle1.translate(0.4,0.5);
+    rectangle1.draw(win);  
 
 
     //Zeichnen eines Kreises
-    Circle circle = Circle(Point2d(0.5,0.5),0.1,ColorRGB(0));
-    Point2d ziel = Point2d(circle.center().x(),circle.center().y()+circle.radius());
-
+    Circle circle ={{0.543,0.543},0.1,{0,255,0}};
     
     if (circle.is_inside(Point2d(m.x,m.y))) 
     {
-      circle.draw(win);
+      circle.draw(win, {0,0,255});
     }else{
-      circle.draw(win, ColorRGB(0,255,0));
+      circle.draw(win);
     }
     
     
