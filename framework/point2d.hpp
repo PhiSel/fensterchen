@@ -12,6 +12,7 @@ public:
 	double y() const;		//Getter
 	void translate(double const& x, double const& y);		//Setter
 	void rotate(double const& r);		//Setter
+	void rotate(Point2d const& Zentrum, double const& r);
 
 private:
 	double x_;
