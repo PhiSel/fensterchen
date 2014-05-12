@@ -72,7 +72,7 @@ void Circle::draw(Window &win, ColorRGB clr){
 }
 
 bool Circle::is_inside(Point2d p) const{
-	if (center().x()+radius_>=p.x() && center().x()-radius_<=p.x() && (center().y()+radius_>=p.y()) && (center().y()-radius_<=p.y()))
+	if (pow(p.x()-center().x(),2)+pow(p.x()-center().x(),2) <= pow(radius_,2))
 	{
 		return true;
 	}
