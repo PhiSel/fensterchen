@@ -76,6 +76,8 @@ SUITE(describe_Point2d){
 		CHECK_EQUAL(4, circle_2.color().g());
 		CHECK_EQUAL(78, circle_2.color().b());
 		CHECK_CLOSE(40.212, circle_2.circumference(), 0.01);
+		CHECK_EQUAL(true, circle_2.is_inside(Point2d(2.83,0.53)));
+		CHECK_EQUAL(false, circle_2.is_inside(Point2d(12.22,-2.31)));
 	}
 	//Rechtecktest 1. Konstruktor
 	Rectangle rectangle_1 = Rectangle();
