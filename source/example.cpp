@@ -1,9 +1,11 @@
 #include "fensterchen.hpp"
 #include "rectangle.hpp"
+#include "circle.hpp"
+#include <cmath>
 
 int main(int argc, char* argv[])
 {
-  Window win(glm::ivec2(1000,600));
+  Window win(glm::ivec2(600,600));
 
   while (!win.shouldClose()) {
     if (win.isKeyPressed(GLFW_KEY_ESCAPE)) {
@@ -40,37 +42,15 @@ int main(int argc, char* argv[])
     win.drawLine(1.0f,0.0f, 1.0f,1.0f, 0,0,0);
     win.drawLine(0.0,1.0f,1.0f,1.0f,0,0,0);
 
-    //Zeichnen eines Rechtecks mit Anpassung der Linienfarbe beii Mouseover ohne draw-Methode (weil Fehler)
+    //Zeichnen eines Rechtecks mit Anpassung der Linienfarbe bei Mouseover ohne draw-Methode (weil Fehler)
     Rectangle rectangle = Rectangle(Point2d(0.2,0.2), 0.3, 0.4, ColorRGB(153,45,2));
-    /**/
+
     if (rectangle.is_inside(Point2d(m.x,m.y)))
-        {
-          win.drawLine(rectangle.lowerleft().x(), rectangle.lowerleft().y(), 
-                       rectangle.lowerleft().x()+rectangle.width(), rectangle.lowerleft().y(),0,0,255);
-
-          win.drawLine(rectangle.lowerleft().x()+rectangle.width(), rectangle.lowerleft().y(),
-                       rectangle.lowerleft().x()+rectangle.width(), rectangle.lowerleft().y()+rectangle.height(),0,0,255);
-
-          win.drawLine(rectangle.lowerleft().x()+rectangle.width(), rectangle.lowerleft().y()+rectangle.height(), 
-                       rectangle.lowerleft().x(), rectangle.lowerleft().y()+rectangle.height(), 0,0,255);
-
-          win.drawLine(rectangle.lowerleft().x(), rectangle.lowerleft().y()+rectangle.height(), 
-                       rectangle.lowerleft().x(), rectangle.lowerleft().y(), 0,0,255);
-        }else{
-          win.drawLine(rectangle.lowerleft().x(), rectangle.lowerleft().y(), 
-                       rectangle.lowerleft().x()+rectangle.width(), rectangle.lowerleft().y(),0,0,0);
-
-          win.drawLine(rectangle.lowerleft().x()+rectangle.width(), rectangle.lowerleft().y(),
-                       rectangle.lowerleft().x()+rectangle.width(), rectangle.lowerleft().y()+rectangle.height(),0,0,0);
-
-          win.drawLine(rectangle.lowerleft().x()+rectangle.width(), rectangle.lowerleft().y()+rectangle.height(), 
-                       rectangle.lowerleft().x(), rectangle.lowerleft().y()+rectangle.height(), 0,0,0);
-
-          win.drawLine(rectangle.lowerleft().x(), rectangle.lowerleft().y()+rectangle.height(), 
-                       rectangle.lowerleft().x(), rectangle.lowerleft().y(), 0,0,0);
-        }  
-
-
+    {
+      rectangle.draw(win);
+    }else{
+      rectangle.draw(win, ColorRGB(255,0,0));
+    }
     //Test der translate-Funktion an einem Punkt (funktioniert)
     Point2d x4 = Point2d(0.1,0.2);
     win.drawPoint(x4.x(), x4.y(), 0,0,0);
@@ -84,7 +64,19 @@ int main(int argc, char* argv[])
     win.drawPoint(rectangle1.lowerleft().x(), rectangle1.lowerleft().y(),0,255,0);  
 
 
-    //rectangle.draw(win);
+    //Zeichnen eines Kreises
+    Circle circle = Circle(Point2d(0.5,0.5),0.1,ColorRGB(0));
+    Point2d ziel = Point2d(circle.center().x(),circle.center().y()+circle.radius());
+
+    
+    if (circle.is_inside(Point2d(m.x,m.y))) 
+    {
+      circle.draw(win);
+    }else{
+      circle.draw(win, ColorRGB(0,255,0));
+    }
+    
+    
     win.update();
   }
 
