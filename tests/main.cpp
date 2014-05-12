@@ -107,7 +107,7 @@ SUITE(describe_Point2d){
 		CHECK_EQUAL(true, rectangle_2.is_inside(Point2d(10.43,8.12)));
 		CHECK_EQUAL(false, rectangle_2.is_inside(Point2d(30.5,6.3)));
 
-		rectangle_2.lowerleft().translate(0.8,1.0);
+		rectangle_2.translate(0.8,1.0);
 		CHECK_CLOSE(6.0, rectangle_2.lowerleft().x(), 0.01);
 		CHECK_CLOSE(4.0, rectangle_2.lowerleft().y(), 0.01);
 	}
