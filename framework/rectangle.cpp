@@ -76,3 +76,7 @@ bool Rectangle::is_inside(Point2d p) const{
 		return false;
 	}
 }
+
+void Rectangle::translate(double x, double y){
+	lowerleft_.translate(x,y);
+}

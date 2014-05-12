@@ -31,6 +31,8 @@ public:
 
 	bool is_inside(Point2d p) const;
 
+	void translate(double x, double y);
+
 private:
 	Point2d lowerleft_;
 	double width_;
