@@ -25,9 +25,9 @@ public:
 
 	double circumference();
 
-	void draw(Window win);
+	void draw(Window &win);
 
-	void draw(Window win, ColorRGB clr);
+	void draw(Window &win, ColorRGB clr);
 
 	bool is_inside(Point2d p) const;
 

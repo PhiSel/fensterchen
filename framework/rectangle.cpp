@@ -51,12 +51,18 @@ double Rectangle::circumference(){
 	return 2*width_+2*height_;
 }
 
-void Rectangle::draw(Window win){
-	//win.drawLine(lowerleft().x(), lowerleft().y(), lowerleft().x()+width(), lowerleft().y(),0,0,0);
-    //win.drawLine(lowerleft().x()+width(), lowerleft().y(),lowerleft().x()+width(), lowerleft().y()+height(),0,0,0);
-    //win.drawLine(lowerleft().x()+width(), lowerleft().y()+height(), lowerleft().x(), lowerleft().y()+height(), 0,0,0);
-    //win.drawLine(lowerleft().x(), lowerleft().y()+height(), lowerleft().x(), lowerleft().y(), 0,0,0);
+void Rectangle::draw(Window &win){
+	win.drawLine(lowerleft().x(), lowerleft().y(), lowerleft().x()+width(), lowerleft().y(),0,0,0);
+    win.drawLine(lowerleft().x()+width(), lowerleft().y(),lowerleft().x()+width(), lowerleft().y()+height(),0,0,0);
+    win.drawLine(lowerleft().x()+width(), lowerleft().y()+height(), lowerleft().x(), lowerleft().y()+height(), 0,0,0);
+    win.drawLine(lowerleft().x(), lowerleft().y()+height(), lowerleft().x(), lowerleft().y(), 0,0,0);
+}
 
+void Rectangle::draw(Window &win, ColorRGB clr){
+	win.drawLine(lowerleft().x(), lowerleft().y(), lowerleft().x()+width(), lowerleft().y(),clr.r(),clr.g(),clr.b());
+    win.drawLine(lowerleft().x()+width(), lowerleft().y(),lowerleft().x()+width(), lowerleft().y()+height(),clr.r(),clr.g(),clr.b());
+    win.drawLine(lowerleft().x()+width(), lowerleft().y()+height(), lowerleft().x(), lowerleft().y()+height(), clr.r(),clr.g(),clr.b());
+    win.drawLine(lowerleft().x(), lowerleft().y()+height(), lowerleft().x(), lowerleft().y(), clr.r(),clr.g(),clr.b());
 }
 
 bool Rectangle::is_inside(Point2d p) const{
