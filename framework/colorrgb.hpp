@@ -4,11 +4,8 @@
 struct ColorRGB
 {
 	ColorRGB();
-	ColorRGB(unsigned char const&);
-	ColorRGB(unsigned char const&, unsigned char const&, unsigned char const&);
-	unsigned char r() const;
-	unsigned char g() const;
-	unsigned char b() const;
+	ColorRGB(unsigned char const color);
+	ColorRGB(unsigned char const r, unsigned char const g, unsigned char const b);
 	unsigned char r_,g_,b_;
 };
 

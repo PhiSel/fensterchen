@@ -6,26 +6,14 @@ ColorRGB::ColorRGB(){
 	b_ = 0;
 }
 
-ColorRGB::ColorRGB(unsigned char const& c){
-	r_ = c;
-	g_ = c;
-	b_ = c;
+ColorRGB::ColorRGB(unsigned char const color){
+	r_ = color;
+	g_ = color;
+	b_ = color;
 }
 
-ColorRGB::ColorRGB(unsigned char const& r,unsigned char const& g,unsigned char const& b){
+ColorRGB::ColorRGB(unsigned char const r,unsigned char const g,unsigned char const b){
 	r_ = r;
 	g_ = g;
 	b_ = b;
-}
-
-unsigned char ColorRGB::r() const{
-	return static_cast<int>(r_);
-}
-
-unsigned char ColorRGB::g() const{
-	return static_cast<int>(g_);
-}
-
-unsigned char ColorRGB::b() const{
-	return static_cast<int>(b_);
 }

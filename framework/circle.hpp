@@ -14,18 +14,18 @@ public:
 	Point2d center() const;				//getter		
 
 	void radius(double r);				//setter
-	double radius();					//getter		
+	double radius() const;					//getter		
 
 	void color(ColorRGB const& color);	//setter
 	ColorRGB color() const;				//getter	
 
 	double circumference();	
 
-	void draw(Window &win);
+	void draw(Window const& win) const;
 
-	void draw(Window &win, ColorRGB clr);
+	void draw(Window const& win, ColorRGB const& clr);
 
-	bool is_inside(Point2d p) const;
+	bool is_inside(Point2d const& p);
 
 private:
 	Point2d center_;

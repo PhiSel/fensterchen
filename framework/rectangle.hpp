@@ -8,16 +8,16 @@ class Rectangle
 {
 public:
 	Rectangle();
-	Rectangle(Point2d const& lowerleft, double const& width, double const& height, ColorRGB const& color);
+	Rectangle(Point2d const& lowerleft, double const width, double const height, ColorRGB const& color);
 	~Rectangle();
 
 	void lowerleft(Point2d const& lowerleft);
 	Point2d lowerleft() const;
 
-	void width(double const& width);
+	void width(double const width);
 	double width() const;
 
-	void height(double const& height);
+	void height(double const height);
 	double height() const;
 
 	void color(ColorRGB const& color);
@@ -25,13 +25,13 @@ public:
 
 	double circumference();
 
-	void draw(Window &win);
+	void draw(Window const& win) const;
 
-	void draw(Window &win, ColorRGB clr);
+	void draw(Window const& win, ColorRGB const& clr);
 
-	bool is_inside(Point2d p) const;
+	bool is_inside(Point2d const& p);
 
-	void translate(double x, double y);
+	void translate(double const x, double const y);
 
 private:
 	Point2d lowerleft_;
