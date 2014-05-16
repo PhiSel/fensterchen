@@ -40,7 +40,7 @@ ColorRGB Circle::color() const {
 	return color_;
 }
 
-double Circle::circumference(){
+double Circle::circumference() const{
 	double u = 2 * M_PI * radius_;
 	return u;
 }

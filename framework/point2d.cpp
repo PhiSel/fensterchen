@@ -9,8 +9,6 @@ Point2d::Point2d(double const x, double const y):
 	x_(x),
 	y_(y) {}
 
-Point2d::~Point2d(){}
-
 double Point2d::x() const{
 	return x_;
 }

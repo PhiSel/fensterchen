@@ -19,7 +19,7 @@ public:
 	void color(ColorRGB const& color);	//setter
 	ColorRGB color() const;				//getter	
 
-	double circumference();	
+	double circumference() const;	
 
 	void draw(Window const& win) const;
 

@@ -3,6 +3,15 @@
 #include "circle.hpp"
 #include <cmath>
 
+template <typename T>
+void draw_inside(Window const& win, T &obj, glm::vec2 const& m){
+  if(obj.is_inside({m.x,m.y})){
+    obj.draw(win,{0, 0, 255});
+  }else{
+    obj.draw(win);
+  }
+}
+
 int main(int argc, char* argv[])
 {
   Window win(glm::ivec2(600,600));
@@ -36,13 +45,7 @@ int main(int argc, char* argv[])
 
     //Zeichnen eines Rechtecks mit Anpassung der Linienfarbe bei Mouseover
     Rectangle rectangle{{0.35, 0.2}, 0.3, 0.4, {0, 255, 0}};
-
-    if (rectangle.is_inside({m.x,m.y}))
-    {
-      rectangle.draw(win, {0, 0, 255});
-    }else{
-      rectangle.draw(win);
-    }
+    draw_inside(win, rectangle, m);
 
     //Test der translate-Funktion an einem Viereck-Punkt (funktioniert nicht)
     auto rectangle1(rectangle);
@@ -52,21 +55,8 @@ int main(int argc, char* argv[])
     rectangle2.color({206, 19, 182});
     rectangle2.translate(-0.2, 0.3);
     
-    //rectangle1.draw(win);  
-
-    if (rectangle1.is_inside({m.x,m.y}))
-    {
-      rectangle1.draw(win, {0, 0, 255});
-    }else{
-      rectangle1.draw(win);
-    }
-
-    if (rectangle2.is_inside({m.x,m.y}))
-    {
-      rectangle2.draw(win, {0, 0, 255});
-    }else{
-      rectangle2.draw(win);
-    }
+    draw_inside(win, rectangle1, m);
+    draw_inside(win, rectangle2, m);
 
     //Zeichnen eines Kreises
     Circle circle{{0.5, 0.32}, 0.1, {255, 0, 0}};
@@ -75,13 +65,7 @@ int main(int argc, char* argv[])
     circle1.draw(win);
     circle2.draw(win);
     
-    if (circle.is_inside(Point2d(m.x,m.y))) 
-    {
-      circle.draw(win, {0, 0, 255});
-    }else{
-      circle.draw(win);
-    }
-    
+    draw_inside(win, circle, m);
     
     win.update();
   }

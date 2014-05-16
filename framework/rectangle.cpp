@@ -47,7 +47,7 @@ ColorRGB Rectangle::color() const {
 	return color_;
 }
 
-double Rectangle::circumference(){
+double Rectangle::circumference() const{
 	return 2 * width_ + 2 * height_;
 }
 

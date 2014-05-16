@@ -23,7 +23,7 @@ public:
 	void color(ColorRGB const& color);
 	ColorRGB color() const;
 
-	double circumference();
+	double circumference() const;
 
 	void draw(Window const& win) const;
 

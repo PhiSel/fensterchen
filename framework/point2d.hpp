@@ -6,7 +6,7 @@ class Point2d
 public:
 	Point2d();						//Standardkonstruktor
 	Point2d(double const x, double const y);	//Konstruktor
-	~Point2d();						//Destruktor
+	~Point2d() = default;						//Destruktor
 
 	double x() const;		//Getter
 	double y() const;		//Getter
